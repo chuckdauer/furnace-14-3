@@ -16,7 +16,6 @@
 					<h1>Ember</h1>
 					<span class="tradem">&trade;</span>
 					<p class="tagline">A Smart Combustion</p><span class="tradem tradem-sm">&trade;</span> <p class="tagline tag-end">Solution</p>
-					<a href="zoloscan.php" role="button" class="page-links btn btn-light">ZoloSCAN</a>
 				</div>
 			</div>
 		<div id="sections" class="row align-items-center">

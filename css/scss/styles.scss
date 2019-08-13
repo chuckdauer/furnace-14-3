@@ -225,6 +225,7 @@ h1 {
 			.p14, .p16, .p18, .p20 {top: 15px; right: 135px;}	
 		}
 	}
+	
 	#oxygen {
 		
 		.path-group {
@@ -236,6 +237,7 @@ h1 {
 			.p14, .p16, .p18, .p20 {top: 15px; right: 78px;}
 		}
 	}
+	
 	#monoxide {
 		
 		.path-group {
@@ -252,16 +254,13 @@ h1 {
 			.p20 {top: 15px; right: 34px;}
 		}
 	}
+	
 	#burner {
 		
 		#burner-lg {
 			background: url("../img/burner-outline.png") no-repeat top center;
 			height: 360px;
 			padding: 65px 210px;
-			
-			.burner-value {
-				
-			}
 		}
 		
 		#wall-burners {
@@ -279,7 +278,6 @@ h1 {
 		
 		#floor-burners {
 			padding: 0px 35px;
-			
 			
 			.floor-burner {
 				height: 100px;
