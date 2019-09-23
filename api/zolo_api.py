@@ -17,8 +17,8 @@ app = Flask(__name__)
 api = Api(app)
 
 
-# REST method
-@app.route('/zolo_metrics/<furnace_number>', methods=['GET'])
+REST method
+@app.route('/zolo_metrics/14', methods=['GET'])
 def get_zolo_data(furnace_number):
     try:
         dl = get_zolo_furnace_data(furnace_number)
@@ -59,6 +59,6 @@ def __get_data(query):
    
     
 # If debugging, then run on port 5001
-if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+# if __name__ == '__main__':
+#     app.run(debug=True, port=5001)
     

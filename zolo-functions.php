@@ -1,5 +1,14 @@
 <?php
-/*ZoloScan*/
+// Tulsa-TestC Wifi Credentials
+// 	Static IP: 172.20.222.53/54
+// 	Subnet: 255.255.255.0
+// 	Gateway: 172.20.222.1
+//
+// 	Password: 7CmzQCAW3N7BJSP8
+
+	//System status "connected or not connected"
+	$systemStatus = "System online";
+
 	//Database to JSON
 	$servername = "localhost";
 	$database = "furnace_14_2";
@@ -16,6 +25,7 @@
 	catch(PDOException $e)
 	  {
 	  	echo "Connection failed: " . $e->getMessage();
+		$systemStatus = "System offline!";
 	  }
 
 	$conn = null;

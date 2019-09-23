@@ -1,9 +1,13 @@
+@import url(all.min.css);
 @font-face {
   font-family: 'OpenSansCondensedBold';
-  src: url("font/OpenSansCondensed-Bold.woff") format("woff"); }
+  src: url("font/OpenSansCondensedBold.woff") format("woff"); }
 @font-face {
   font-family: 'OpenSansCondensedLight';
-  src: url("font/OpenSansCondensed-Light.woff") format("woff"); }
+  src: url("font/OpenSansCondensedLight.woff") format("woff"); }
+@font-face {
+  font-family: 'FontAwesomeReg';
+  src: url("font/FontAwesome5FreeRegular400.otf") format("otf"); }
 body {
   height: 100%;
   margin: 0;
@@ -16,7 +20,6 @@ body {
   overflow-x: hidden; }
 
 a, a:active, a:hover, a:visited {
-  color: #323232;
   text-decoration: none; }
 
 .clearfix {
@@ -94,23 +97,88 @@ h1 {
   line-height: 100px;
   display: inline; }
 
-.btn {
-  border-radius: 0; }
-
 #header {
   width: 100%;
   height: 100px;
   margin: 35px 0px 35px 0px;
   padding: 0px 0px 0px 50px;
   background-color: #323232; }
-  #header .left {
-    width: 50%;
-    margin-left: 35px;
-    float: left; }
-  #header .right {
-    margin-right: 35px;
+  #header .settings {
     float: right;
-    line-height: 100px; }
+    margin: 20px 100px 0px 0px; }
+    #header .settings .f-icon {
+      color: #ffffff;
+      font-size: 40px;
+      padding: 0 10px; }
+    #header .settings .dropdown {
+      position: relative;
+      display: inline-block; }
+    #header .settings .dropdown-content {
+      display: none;
+      background-color: #323232;
+      position: absolute;
+      min-width: 197px;
+      z-index: 3;
+      font-size: 24px;
+      padding: 7px 15px; }
+      #header .settings .dropdown-content a, #header .settings .dropdown-content a:active, #header .settings .dropdown-content a:hover, #header .settings .dropdown-content a:visited {
+        display: block;
+        color: #ffffff;
+        text-decoration: none; }
+        #header .settings .dropdown-content a:hover, #header .settings .dropdown-content a:active:hover, #header .settings .dropdown-content a:hover:hover, #header .settings .dropdown-content a:visited:hover {
+          color: #747577; }
+    #header .settings .dropdown:hover .dropdown-content {
+      display: block; }
+
+.tooltip.show {
+  font-size: 20px; }
+
+.modal-dialog {
+  top: 35%; }
+  .modal-dialog .modal-content hr {
+    width: 75%; }
+  .modal-dialog .modal-content .modal-header {
+    border-bottom: none; }
+    .modal-dialog .modal-content .modal-header .modal-title {
+      margin: 0 auto; }
+    .modal-dialog .modal-content .modal-header .close {
+      margin: unset;
+      padding: unset;
+      font-size: 50px; }
+  .modal-dialog .modal-content form input[type=number]::-webkit-inner-spin-button,
+  .modal-dialog .modal-content form input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0; }
+  .modal-dialog .modal-content .modal-body {
+    font-family: "OpenSansCondensedLight"; }
+    .modal-dialog .modal-content .modal-body h3 {
+      display: inline-block;
+      padding-right: 30px; }
+    .modal-dialog .modal-content .modal-body label {
+      margin: 0px 20px 0px 0px;
+      font-size: 1.5rem; }
+    .modal-dialog .modal-content .modal-body .color-value-pick {
+      padding-left: 65px; }
+    .modal-dialog .modal-content .modal-body .color-value-input {
+      width: 75px;
+      font-family: "OpenSansCondensedLight";
+      font-size: 22px; }
+    .modal-dialog .modal-content .modal-body .pickr {
+      width: 75px;
+      height: 38px;
+      margin-top: 10px;
+      border-radius: 4px; }
+  .modal-dialog .modal-content .modal-footer {
+    border-top: none; }
+  .modal-dialog .modal-content sup {
+    top: 0em;
+    color: #ee3e32;
+    font-size: 2rem; }
+  .modal-dialog .modal-content p {
+    font-family: "OpenSansCondensedLight";
+    font-size: 20px;
+    margin: 30px 0px -48px 20px; }
 
 #sections {
   margin-left: 17.5px;
@@ -128,99 +196,103 @@ h1 {
     height: auto !important;
     margin: 0 auto; }
   #sections .section {
-    height: 750px;
+    height: 950px;
     min-height: 100%;
     background-color: #f0f3f7;
     margin: 0px 17.5px -5px 17.5px;
-    padding: 35px 0px 5px 0px;
+    padding: 100px 0px 5px 0px;
     overflow: hidden; }
     #sections .section .path-group {
       display: block;
       margin: 0 auto;
-      width: 291px;
-      height: 132px;
+      width: 300px;
+      height: 140px;
       background: url("../img/path-group.png");
-      margin-bottom: 10px; }
-    #sections .section .path-color .path-top {
-      z-index: 1;
-      position: absolute; }
-    #sections .section .path-color .path-bottom {
-      z-index: 2;
-      position: absolute; }
-    #sections .section .path-color .path-left {
-      z-index: 3;
-      position: absolute; }
-    #sections .section .path-color .path-middle {
-      z-index: 4;
-      position: absolute; }
-    #sections .section .path-color .path-right {
-      z-index: 5;
-      position: absolute; }
+      margin-bottom: 35px; }
+    #sections .section .path-color {
+      position: relative;
+      left: 6px;
+      bottom: 5px; }
+      #sections .section .path-color .path-top {
+        z-index: 1;
+        position: absolute; }
+      #sections .section .path-color .path-bottom {
+        z-index: 2;
+        position: absolute; }
+      #sections .section .path-color .path-left {
+        z-index: 3;
+        position: absolute; }
+      #sections .section .path-color .path-middle {
+        z-index: 4;
+        position: absolute; }
+      #sections .section .path-color .path-right {
+        z-index: 5;
+        position: absolute; }
     #sections .section hr {
       width: 75%; }
     #sections .section p {
       text-align: center;
       line-height: .5em; }
   #sections #temp .path-group .p1, #sections #temp .path-group .p4, #sections #temp .path-group .p7, #sections #temp .path-group .p10 {
-    top: 104px;
-    left: 85px; }
-  #sections #temp .path-group .p2, #sections #temp .path-group .p5, #sections #temp .path-group .p8, #sections #temp .path-group .p11 {
-    top: 104px;
-    left: 115px; }
-  #sections #temp .path-group .p3, #sections #temp .path-group .p6, #sections #temp .path-group .p9, #sections #temp .path-group .p12 {
-    top: 104px;
-    left: 137px; }
-  #sections #temp .path-group .p13, #sections #temp .path-group .p15, #sections #temp .path-group .p17, #sections #temp .path-group .p19 {
-    top: 49px;
-    right: 110px; }
-  #sections #temp .path-group .p14, #sections #temp .path-group .p16, #sections #temp .path-group .p18, #sections #temp .path-group .p20 {
-    top: 15px;
-    right: 135px; }
-  #sections #oxygen .path-group .p1, #sections #oxygen .path-group .p4, #sections #oxygen .path-group .p7, #sections #oxygen .path-group .p10 {
-    top: 104px;
+    top: 100px;
     left: 90px; }
+  #sections #temp .path-group .p2, #sections #temp .path-group .p5, #sections #temp .path-group .p8, #sections #temp .path-group .p11 {
+    top: 100px;
+    left: 122px; }
+  #sections #temp .path-group .p3, #sections #temp .path-group .p6, #sections #temp .path-group .p9, #sections #temp .path-group .p12 {
+    top: 100px;
+    left: 143px; }
+  #sections #temp .path-group .p13, #sections #temp .path-group .p15, #sections #temp .path-group .p17, #sections #temp .path-group .p19 {
+    top: 45px;
+    right: 103px; }
+  #sections #temp .path-group .p14, #sections #temp .path-group .p16, #sections #temp .path-group .p18, #sections #temp .path-group .p20 {
+    top: 11px;
+    right: 129px; }
+  #sections #oxygen .path-group .p1, #sections #oxygen .path-group .p4, #sections #oxygen .path-group .p7, #sections #oxygen .path-group .p10 {
+    top: 100px;
+    left: 97px; }
   #sections #oxygen .path-group .p2, #sections #oxygen .path-group .p5, #sections #oxygen .path-group .p8, #sections #oxygen .path-group .p11 {
-    top: 104px;
-    left: 133px; }
+    top: 100px;
+    left: 141px; }
   #sections #oxygen .path-group .p3, #sections #oxygen .path-group .p6, #sections #oxygen .path-group .p9, #sections #oxygen .path-group .p12 {
-    top: 104px;
-    left: 167px; }
+    top: 100px;
+    left: 174px; }
   #sections #oxygen .path-group .p13, #sections #oxygen .path-group .p15, #sections #oxygen .path-group .p17, #sections #oxygen .path-group .p19 {
-    top: 49px;
-    right: 67px; }
+    top: 45px;
+    right: 60px; }
   #sections #oxygen .path-group .p14, #sections #oxygen .path-group .p16, #sections #oxygen .path-group .p18, #sections #oxygen .path-group .p20 {
-    top: 15px;
-    right: 78px; }
+    top: 10px;
+    right: 71px; }
   #sections #monoxide .path-group .p1, #sections #monoxide .path-group .p4, #sections #monoxide .path-group .p7 {
-    top: 104px;
-    left: 98px; }
+    top: 100px;
+    left: 104px; }
   #sections #monoxide .path-group .p10 {
-    top: 104px;
-    left: 92px; }
+    top: 99px;
+    left: 98px; }
   #sections #monoxide .path-group .p2, #sections #monoxide .path-group .p5, #sections #monoxide .path-group .p8 {
-    top: 104px;
-    left: 153px; }
+    top: 100px;
+    left: 161px; }
   #sections #monoxide .path-group .p11 {
-    top: 104px;
-    left: 140px; }
+    top: 100px;
+    left: 147px; }
   #sections #monoxide .path-group .p3, #sections #monoxide .path-group .p6, #sections #monoxide .path-group .p9 {
-    top: 104px;
-    left: 200px; }
+    top: 100px;
+    left: 208px; }
   #sections #monoxide .path-group .p12 {
-    top: 104px;
-    left: 188px; }
+    top: 100px;
+    left: 194px; }
   #sections #monoxide .path-group .p13, #sections #monoxide .path-group .p15, #sections #monoxide .path-group .p17 {
-    top: 49px;
-    right: 21px; }
+    top: 45px;
+    right: 15px; }
   #sections #monoxide .path-group .p19 {
-    top: 49px;
-    right: 34px; }
+    top: 45px;
+    right: 27px; }
   #sections #monoxide .path-group .p14, #sections #monoxide .path-group .p16, #sections #monoxide .path-group .p18 {
-    top: 15px;
-    right: 22px; }
+    top: 10px;
+    right: 16px; }
   #sections #monoxide .path-group .p20 {
-    top: 15px;
-    right: 34px; }
+    top: 10px;
+    right: 29px; }
   #sections #burner #burner-lg {
     background: url("../img/burner-outline.png") no-repeat top center;
     height: 360px;
