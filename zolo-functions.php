@@ -12,8 +12,8 @@
 	//Database to JSON
 	$servername = "localhost";
 	$database = "furnace_14_2";
-	$username = "chuck";
-	$password = "root";
+	$username = "root";
+	$password = "18154";
 
 	try {
 		$pdo = new PDO("mysql:dbname=$database;host=$servername", $username, $password);
@@ -36,6 +36,8 @@
 	$yellow = "filter: invert(79%) sepia(52%) saturate(3136%) hue-rotate(343deg) brightness(106%) contrast(97%);";
 	$red = "filter: invert(27%) sepia(68%) saturate(3737%) hue-rotate(348deg) brightness(106%) contrast(87%);";
 	$test_white = "filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(2deg) brightness(100%) contrast(100%);";
+	
+	
 	
 	/*Path color statements*/
 	// Temp
