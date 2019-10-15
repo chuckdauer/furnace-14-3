@@ -88,7 +88,8 @@ p {
   font-family: "OpenSansCondensedLight";
   font-size: 21px;
   color: #323232;
-  position: relative; }
+  position: relative;
+  display: inline; }
 
 h1 {
   font-family: "OpenSansCondensedBold";
@@ -248,6 +249,8 @@ h1 {
   #sections #temp .path-group .p14, #sections #temp .path-group .p16, #sections #temp .path-group .p18, #sections #temp .path-group .p20 {
     top: 11px;
     right: 129px; }
+  #sections #temp .path-group .ftoc {
+    z-index: 99; }
   #sections #oxygen .path-group .p1, #sections #oxygen .path-group .p4, #sections #oxygen .path-group .p7, #sections #oxygen .path-group .p10 {
     top: 100px;
     left: 97px; }

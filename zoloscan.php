@@ -10,47 +10,18 @@
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<!-- Ember -->
 		<link rel="stylesheet" href="css/styles.css">
+		<!-- Font Awesome -->
+		<script src="js/all.js"></script>
+		<!-- Zolo functions -->
+		<script src="js/zolo-functions.js"></script>
+		<!-- jQuery -->
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<!-- Bootstrap 4 -->
+		<script src="js/bootstrap.bundle.js"></script>
 	</head>
 	<!-- Zolo functions (mySQL, PHP) -->
 	<?php include('zolo-functions.php'); ?>
 	<body>
-		<?php
-		 session_unset();
-		 session_start();
-
-		if(isset($_POST['submitTemp'])){
-		    //collect form data
-		    $_SESSION['scale'] = $_POST['scale'];
-			// Temp
-		    $_SESSION['minValueTemp'] = $_POST['minValueTemp'];
-			$_SESSION['minColorTemp'] = $_POST['minColorTemp'];
-			$_SESSION['midValueTemp'] = $_POST['midValueTemp'];
-			$_SESSION['midColorTemp'] = $_POST['midColorTemp'];
-			$_SESSION['maxValueTemp'] = $_POST['maxValueTemp'];
-			$_SESSION['maxColorTemp'] = $_POST['maxColorTemp'];
-		};
-		if(isset($_POST['submitOxyg'])){
-			// Oxyg
-		    $_SESSION['minValueOxyg'] = $_POST['minValueOxyg'];
-			$_SESSION['minColorOxyg'] = $_POST['minColorOxyg'];
-			$_SESSION['midValueOxyg'] = $_POST['midValueOxyg'];
-			$_SESSION['midColorOxyg'] = $_POST['midColorOxyg'];
-			$_SESSION['maxValueOxyg'] = $_POST['maxValueOxyg'];
-			$_SESSION['maxColorOxyg'] = $_POST['maxColorOxyg'];
-		};
-		if(isset($_POST['submitCarb'])){
-			// Carb
-		    $_SESSION['minValueCarb'] = $_POST['minValueCarb'];
-			$_SESSION['minColorCarb'] = $_POST['minColorCarb'];
-			$_SESSION['midValueCarb'] = $_POST['midValueCarb'];
-			$_SESSION['midColorCarb'] = $_POST['midColorCarb'];
-			$_SESSION['maxValueCarb'] = $_POST['maxValueCarb'];
-			$_SESSION['maxColorCarb'] = $_POST['maxColorCarb'];
-		};
-
-		//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-
-		?>
 		<div class="row">
 				<div id="header" class="col align-items-center">
 					<h1>Ember</h1>
@@ -80,11 +51,11 @@
 						      </div>
 								<hr>
 						      <div class="modal-body">
-						        <div class="scale">
+						        <!-- <div class="scale">
 						        	<h3>Scale</h3>
-									<input type="radio" name="scale" value="f" checked> <label>Fahrenheit</label> 
+									<input type="radio" name="scale" value="f" checked> <label>Fahrenheit</label>
 									<input type="radio" name="scale" value="c"> <label>Celcius</label>
-						        </div>
+						        </div> -->
 								<br>
 								<div class="custom align-items-center">
 									<h3>Custom colors<sup>*</sup></h3>
@@ -224,11 +195,11 @@
 							<img src="img/right-path.png" class="path-right" style="<?php echo $tpath03 ?>">
 						</span>
 						<!-- path-left, path-middle, path-right, path-bottom, path-top -->
-						<span class="value p1"><?php echo $data[0]['path_01_temp']; ?></span>
-						<span class="value p2"><?php echo $data[0]['path_02_temp']; ?></span>
-						<span class="value p3"><?php echo $data[0]['path_03_temp']; ?></span>
-						<span class="value p13"><?php echo $data[0]['path_13_temp']; ?></span>
-						<span class="value p14"><?php echo $data[0]['path_14_temp']; ?></span>
+						<span id="tp1" class="value p1 ftoc" onmouseover="document.getElementById('tp1').innerHTML=(<?php echo $data['path_01_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp1').innerHTML='<?php echo $data['path_01_temp']; ?>'"><?php echo $data['path_01_temp']; ?></span>
+						<span id="tp2" class="value p2 ftoc" onmouseover="document.getElementById('tp2').innerHTML=(<?php echo $data['path_02_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp2').innerHTML='<?php echo $data['path_02_temp']; ?>'"><?php echo $data['path_02_temp']; ?></span>
+						<span id="tp3" class="value p3 ftoc" onmouseover="document.getElementById('tp3').innerHTML=(<?php echo $data['path_03_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp3').innerHTML='<?php echo $data['path_03_temp']; ?>'"><?php echo $data['path_03_temp']; ?></span>
+						<span id="tp13" class="value p13 ftoc" onmouseover="document.getElementById('tp13').innerHTML=(<?php echo $data['path_13_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp13').innerHTML='<?php echo $data['path_13_temp']; ?>'"><?php echo $data['path_13_temp']; ?></span>
+						<span id="tp14" class="value p14 ftoc" onmouseover="document.getElementById('tp14').innerHTML=(<?php echo $data['path_14_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp14').innerHTML='<?php echo $data['path_14_temp']; ?>'"><?php echo $data['path_14_temp']; ?></span>
 					</span>
 					<span class="path-group two">
 						<span class="path-color">
@@ -238,11 +209,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $tpath05 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $tpath06 ?>">
 						</span>
-						<span class="value p4"><?php echo $data[0]['path_04_temp']; ?></span>
-						<span class="value p5"><?php echo $data[0]['path_05_temp']; ?></span>
-						<span class="value p6"><?php echo $data[0]['path_06_temp']; ?></span>
-						<span class="value p15"><?php echo $data[0]['path_15_temp']; ?></span>
-						<span class="value p16"><?php echo $data[0]['path_16_temp']; ?></span>
+						<span id="tp4" class="value p4 ftoc" onmouseover="document.getElementById('tp4').innerHTML=(<?php echo $data['path_04_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp4').innerHTML='<?php echo $data['path_04_temp']; ?>'"><?php echo $data['path_04_temp']; ?></span>
+						<span id="tp5" class="value p5 ftoc" onmouseover="document.getElementById('tp5').innerHTML=(<?php echo $data['path_05_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp5').innerHTML='<?php echo $data['path_05_temp']; ?>'"><?php echo $data['path_05_temp']; ?></span>
+						<span id="tp6" class="value p6 ftoc" onmouseover="document.getElementById('tp6').innerHTML=(<?php echo $data['path_06_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp6').innerHTML='<?php echo $data['path_06_temp']; ?>'"><?php echo $data['path_06_temp']; ?></span>
+						<span id="tp15" class="value p15 ftoc" onmouseover="document.getElementById('tp15').innerHTML=(<?php echo $data['path_15_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp15').innerHTML='<?php echo $data['path_15_temp']; ?>'"><?php echo $data['path_15_temp']; ?></span>
+						<span id="tp16" class="value p16 ftoc" onmouseover="document.getElementById('tp16').innerHTML=(<?php echo $data['path_16_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp16').innerHTML='<?php echo $data['path_16_temp']; ?>'"><?php echo $data['path_16_temp']; ?></span>
 					</span>
 					<span class="path-group three">
 						<span class="path-color">
@@ -252,11 +223,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $tpath08 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $tpath09 ?>">
 						</span>
-						<span class="value p7"><?php echo $data[0]['path_07_temp']; ?></span>
-						<span class="value p8"><?php echo $data[0]['path_08_temp']; ?></span>
-						<span class="value p9"><?php echo $data[0]['path_09_temp']; ?></span>
-						<span class="value p17"><?php echo $data[0]['path_17_temp']; ?></span>
-						<span class="value p18"><?php echo $data[0]['path_18_temp']; ?></span>
+						<span id="tp7" class="value p7 ftoc" onmouseover="document.getElementById('tp7').innerHTML=(<?php echo $data['path_07_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp7').innerHTML='<?php echo $data['path_07_temp']; ?>'"><?php echo $data['path_07_temp']; ?></span>
+						<span id="tp8" class="value p8 ftoc" onmouseover="document.getElementById('tp8').innerHTML=(<?php echo $data['path_08_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp8').innerHTML='<?php echo $data['path_08_temp']; ?>'"><?php echo $data['path_08_temp']; ?></span>
+						<span id="tp9" class="value p9 ftoc" onmouseover="document.getElementById('tp9').innerHTML=(<?php echo $data['path_09_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp9').innerHTML='<?php echo $data['path_09_temp']; ?>'"><?php echo $data['path_09_temp']; ?></span>
+						<span id="tp17" class="value p17 ftoc" onmouseover="document.getElementById('tp17').innerHTML=(<?php echo $data['path_17_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp17').innerHTML='<?php echo $data['path_17_temp']; ?>'"><?php echo $data['path_17_temp']; ?></span>
+						<span id="tp18" class="value p18 ftoc" onmouseover="document.getElementById('tp18').innerHTML=(<?php echo $data['path_18_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp18').innerHTML='<?php echo $data['path_18_temp']; ?>'"><?php echo $data['path_18_temp']; ?></span>
 					</span>
 					<span class="path-group four">
 						<span class="path-color">
@@ -266,15 +237,15 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $tpath11 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $tpath12 ?>">
 						</span>
-						<span class="value p10"><?php echo $data[0]['path_10_temp']; ?></span>
-						<span class="value p11"><?php echo $data[0]['path_11_temp']; ?></span>
-						<span class="value p12"><?php echo $data[0]['path_12_temp']; ?></span>
-						<span class="value p19"><?php echo $data[0]['path_19_temp']; ?></span>
-						<span class="value p20"><?php echo $data[0]['path_20_temp']; ?></span>
+						<span id="tp10" class="value p10 ftoc" onmouseover="document.getElementById('tp10').innerHTML=(<?php echo $data['path_10_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp10').innerHTML='<?php echo $data['path_10_temp']; ?>'"><?php echo $data['path_10_temp']; ?></span>
+						<span id="tp11" class="value p11 ftoc" onmouseover="document.getElementById('tp11').innerHTML=(<?php echo $data['path_11_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp11').innerHTML='<?php echo $data['path_11_temp']; ?>'"><?php echo $data['path_11_temp']; ?></span>
+						<span id="tp12" class="value p12 ftoc" onmouseover="document.getElementById('tp12').innerHTML=(<?php echo $data['path_12_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp12').innerHTML='<?php echo $data['path_12_temp']; ?>'"><?php echo $data['path_12_temp']; ?></span>
+						<span id="tp19" class="value p19 ftoc" onmouseover="document.getElementById('tp19').innerHTML=(<?php echo $data['path_19_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp19').innerHTML='<?php echo $data['path_19_temp']; ?>'"><?php echo $data['path_19_temp']; ?></span>
+						<span id="tp20" class="value p20 ftoc" onmouseover="document.getElementById('tp20').innerHTML=(<?php echo $data['path_20_temp']; ?>-32)/1.88.toFixed(0)" onmouseout="document.getElementById('tp20').innerHTML='<?php echo $data['path_20_temp']; ?>'"><?php echo $data['path_20_temp']; ?></span>
 					</span>
 					<br>
 					<hr>
-					<p class="accent">°F</p>
+					<p id="t-scale" class="accent">°F</p>
 					<p>Temperature</p>
 					<br>
 				</div>
@@ -287,11 +258,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $opath02 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $opath03 ?>">
 						</span>
-						<span class="value p1"><?php echo number_format($data[0]['path_01_o2'], 1, '.', ''); ?></span>
-						<span class="value p2"><?php echo number_format($data[0]['path_02_o2'], 1, '.', ''); ?></span>
-						<span class="value p3"><?php echo number_format($data[0]['path_03_o2'], 1, '.', ''); ?></span>
-						<span class="value p13"><?php echo number_format($data[0]['path_13_o2'], 1, '.', ''); ?></span>
-						<span class="value p14"><?php echo number_format($data[0]['path_14_o2'], 1, '.', ''); ?></span>
+						<span class="value p1"><?php echo number_format($data['path_01_o2'], 1, '.', ''); ?></span>
+						<span class="value p2"><?php echo number_format($data['path_02_o2'], 1, '.', ''); ?></span>
+						<span class="value p3"><?php echo number_format($data['path_03_o2'], 1, '.', ''); ?></span>
+						<span class="value p13"><?php echo number_format($data['path_13_o2'], 1, '.', ''); ?></span>
+						<span class="value p14"><?php echo number_format($data['path_14_o2'], 1, '.', ''); ?></span>
 					</span>
 					<span class="path-group two">
 						<span class="path-color">
@@ -301,11 +272,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $opath05 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $opath06 ?>">
 						</span>
-						<span class="value p4"><?php echo number_format($data[0]['path_04_o2'], 1, '.', ''); ?></span>
-						<span class="value p5"><?php echo number_format($data[0]['path_05_o2'], 1, '.', ''); ?></span>
-						<span class="value p6"><?php echo number_format($data[0]['path_06_o2'], 1, '.', ''); ?></span>
-						<span class="value p15"><?php echo number_format($data[0]['path_15_o2'], 1, '.', ''); ?></span>
-						<span class="value p16"><?php echo number_format($data[0]['path_16_o2'], 1, '.', ''); ?></span>
+						<span class="value p4"><?php echo number_format($data['path_04_o2'], 1, '.', ''); ?></span>
+						<span class="value p5"><?php echo number_format($data['path_05_o2'], 1, '.', ''); ?></span>
+						<span class="value p6"><?php echo number_format($data['path_06_o2'], 1, '.', ''); ?></span>
+						<span class="value p15"><?php echo number_format($data['path_15_o2'], 1, '.', ''); ?></span>
+						<span class="value p16"><?php echo number_format($data['path_16_o2'], 1, '.', ''); ?></span>
 					</span>
 					<span class="path-group three">
 						<span class="path-color">
@@ -315,11 +286,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $opath08 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $opath09 ?>">
 						</span>
-						<span class="value p7"><?php echo number_format($data[0]['path_07_o2'], 1, '.', ''); ?></span>
-						<span class="value p8"><?php echo number_format($data[0]['path_08_o2'], 1, '.', ''); ?></span>
-						<span class="value p9"><?php echo number_format($data[0]['path_09_o2'], 1, '.', ''); ?></span>
-						<span class="value p17"><?php echo number_format($data[0]['path_17_o2'], 1, '.', ''); ?></span>
-						<span class="value p18"><?php echo number_format($data[0]['path_18_o2'], 1, '.', ''); ?></span>
+						<span class="value p7"><?php echo number_format($data['path_07_o2'], 1, '.', ''); ?></span>
+						<span class="value p8"><?php echo number_format($data['path_08_o2'], 1, '.', ''); ?></span>
+						<span class="value p9"><?php echo number_format($data['path_09_o2'], 1, '.', ''); ?></span>
+						<span class="value p17"><?php echo number_format($data['path_17_o2'], 1, '.', ''); ?></span>
+						<span class="value p18"><?php echo number_format($data['path_18_o2'], 1, '.', ''); ?></span>
 					</span>
 					<span class="path-group four">
 						<span class="path-color">
@@ -329,11 +300,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $opath11 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $opath12 ?>">
 						</span>
-						<span class="value p10"><?php echo number_format($data[0]['path_10_o2'], 1, '.', ''); ?></span>
-						<span class="value p11"><?php echo number_format($data[0]['path_11_o2'], 1, '.', ''); ?></span>
-						<span class="value p12"><?php echo number_format($data[0]['path_12_o2'], 1, '.', ''); ?></span>
-						<span class="value p19"><?php echo number_format($data[0]['path_19_o2'], 1, '.', ''); ?></span>
-						<span class="value p20"><?php echo number_format($data[0]['path_20_o2'], 1, '.', ''); ?></span>
+						<span class="value p10"><?php echo number_format($data['path_10_o2'], 1, '.', ''); ?></span>
+						<span class="value p11"><?php echo number_format($data['path_11_o2'], 1, '.', ''); ?></span>
+						<span class="value p12"><?php echo number_format($data['path_12_o2'], 1, '.', ''); ?></span>
+						<span class="value p19"><?php echo number_format($data['path_19_o2'], 1, '.', ''); ?></span>
+						<span class="value p20"><?php echo number_format($data['path_20_o2'], 1, '.', ''); ?></span>
 					</span>
 					<br>
 					<hr>
@@ -350,11 +321,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $cmpath02 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $cmpath03 ?>">
 						</span>
-						<span class="value p1"><?php echo $data[0]['path_01_co2']; ?></span>
-						<span class="value p2"><?php echo $data[0]['path_02_co2']; ?></span>
-						<span class="value p3"><?php echo $data[0]['path_03_co2']; ?></span>
-						<span class="value p13"><?php echo $data[0]['path_13_co2']; ?></span>
-						<span class="value p14"><?php echo $data[0]['path_14_co2']; ?></span>
+						<span class="value p1"><?php echo $data['path_01_co2']; ?></span>
+						<span class="value p2"><?php echo $data['path_02_co2']; ?></span>
+						<span class="value p3"><?php echo $data['path_03_co2']; ?></span>
+						<span class="value p13"><?php echo $data['path_13_co2']; ?></span>
+						<span class="value p14"><?php echo $data['path_14_co2']; ?></span>
 					</span>
 					<span class="path-group two">
 						<span class="path-color">
@@ -364,11 +335,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $cmpath05 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $cmpath06 ?>">
 						</span>
-						<span class="value p4"><?php echo $data[0]['path_04_co2']; ?></span>
-						<span class="value p5"><?php echo $data[0]['path_05_co2']; ?></span>
-						<span class="value p6"><?php echo $data[0]['path_06_co2']; ?></span>
-						<span class="value p15"><?php echo $data[0]['path_15_co2']; ?></span>
-						<span class="value p16"><?php echo $data[0]['path_16_co2']; ?></span>
+						<span class="value p4"><?php echo $data['path_04_co2']; ?></span>
+						<span class="value p5"><?php echo $data['path_05_co2']; ?></span>
+						<span class="value p6"><?php echo $data['path_06_co2']; ?></span>
+						<span class="value p15"><?php echo $data['path_15_co2']; ?></span>
+						<span class="value p16"><?php echo $data['path_16_co2']; ?></span>
 					</span>
 					<span class="path-group three">
 						<span class="path-color">
@@ -378,11 +349,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $cmpath08 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $cmpath09 ?>">
 						</span>
-						<span class="value p7"><?php echo $data[0]['path_07_co2']; ?></span>
-						<span class="value p8"><?php echo $data[0]['path_08_co2']; ?></span>
-						<span class="value p9"><?php echo $data[0]['path_09_co2']; ?></span>
-						<span class="value p17"><?php echo $data[0]['path_17_co2']; ?></span>
-						<span class="value p18"><?php echo $data[0]['path_18_co2']; ?></span>
+						<span class="value p7"><?php echo $data['path_07_co2']; ?></span>
+						<span class="value p8"><?php echo $data['path_08_co2']; ?></span>
+						<span class="value p9"><?php echo $data['path_09_co2']; ?></span>
+						<span class="value p17"><?php echo $data['path_17_co2']; ?></span>
+						<span class="value p18"><?php echo $data['path_18_co2']; ?></span>
 					</span>
 					<span class="path-group four">
 						<span class="path-color">
@@ -392,11 +363,11 @@
 							<img src="img/middle-path.png" class="path-middle" style="<?php echo $cmpath11 ?>">
 							<img src="img/right-path.png" class="path-right" style="<?php echo $cmpath12 ?>">
 						</span>
-						<span class="value p10"><?php echo $data[0]['path_10_co2']; ?></span>
-						<span class="value p11"><?php echo $data[0]['path_11_co2']; ?></span>
-						<span class="value p12"><?php echo $data[0]['path_12_co2']; ?></span>
-						<span class="value p19"><?php echo $data[0]['path_19_co2']; ?></span>
-						<span class="value p20"><?php echo $data[0]['path_20_co2']; ?></span>
+						<span class="value p10"><?php echo $data['path_10_co2']; ?></span>
+						<span class="value p11"><?php echo $data['path_11_co2']; ?></span>
+						<span class="value p12"><?php echo $data['path_12_co2']; ?></span>
+						<span class="value p19"><?php echo $data['path_19_co2']; ?></span>
+						<span class="value p20"><?php echo $data['path_20_co2']; ?></span>
 					</span>
 					<br>
 					<hr>
@@ -406,19 +377,21 @@
 				</div>
 			</div>
 	</body>
-	<!-- Font Awesome -->
-	<script src="js/all.js"></script>
-	<!-- Zolo functions -->
-	<script src="js/zolo-functions.js"></script>
-	<!-- jQuery -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="js/bootstrap.bundle.js"></script>
 	<!-- Bootstrap tooltip enable -->
 	<script>
 		$(document).ready(function(){
 		    $('[data-toggle="tooltip"]').tooltip();
 			html: "true"   
 		});
-	</script>
+
+		<?php 
+		//phpinfo();
+		//echo '<pre>'; print_r($data); echo '</pre>';
+		//echo "path_01_temp:";
+		//echo $data['path_01_temp'];
+		//echo number_format($data[0]['path_01_o2'], 1, '.', '');
+		//echo '<pre>'; var_dump($data); echo '</pre>';
+		//echo '<pre>'; print_r(array_keys($data)); echo '</pre>';
+		//print_r(array_keys($data));
+		?>
 </html>
