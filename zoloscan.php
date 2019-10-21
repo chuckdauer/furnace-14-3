@@ -1,3 +1,5 @@
+<!-- Zolo functions (mySQL, PHP) -->
+<?php include('zolo-functions.php'); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,8 +21,6 @@
 		<!-- Bootstrap 4 -->
 		<script src="js/bootstrap.bundle.js"></script>
 	</head>
-	<!-- Zolo functions (mySQL, PHP) -->
-	<?php include('zolo-functions.php'); ?>
 	<body>
 		<div class="row">
 				<div id="header" class="col align-items-center">
